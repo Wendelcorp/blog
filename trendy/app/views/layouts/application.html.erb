@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trendy</title>
     <%= csrf_meta_tags %>
 
@@ -9,23 +10,38 @@
   </head>
 
   <body>
-    <div id="sidebar">
-      <div id="logo">
-        <%= link_to root_path do %>
-          <%= image_tag "logo.svg" %>
-        <% end %>
+    <% if user_signed_in? %>
+    <div class="admin-bar">
+      <div class="buttons">
+        <button class="button"><%= link_to "New Post", new_post_path %></button>
+        <button class="button"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
       </div>
+    </div>
+    <% end %>
+    <% flash.each do |name, message| %>
+    <%= content_tag(:div, message, class: "alert") %>
+    <% end %>
+    <div id="logo">
+      <!-- <%= link_to root_path do %>
+        <%= image_tag "logo.svg" %>
+      <% end %> -->
+    </div>
+    <%= link_to root_path do %>
+    <h1 class="main-logo">Trendy.io</h1>
+    <% end %>
+    <div id="sidebar">
       <ul>
-        <li class="category">Website</li>
-        <li><%= link_to "Blog", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
+        <li class="category">Categories</li>
+        <li><a href="#">All</a></li>
+        <li><a href="#">Fashion</a></li>
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Tech</a></li>
+        <li><a href="#">Art</a></li>
+        <li><a href="#">Other Stuff</a></li>
       </ul>
       <ul>
-        <li class="category">Social</li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Github</a></li>
+        <li class="category">Contribute</li>
+        <li><%= link_to "Submit a link", about_path %></li>
       </ul>
       <% if !user_signed_in? %>
       <p class="sign_in">Admin Login</p>
@@ -34,23 +50,17 @@
 
     <div id="main_content">
       <div id="header">
+
+        <h4 class="main-logo"></h4>
         <% if current_page?(root_path) %>
-        <p>All Posts</p>
+        <!-- <p>All Posts</p> -->
         <% elsif current_page?(about_path) %>
         <p>About</p>
         <% else %>
         <%= link_to "Back to All Posts", root_path %>
         <% end %>
-        <% if user_signed_in? %>
-        <div class="buttons">
-          <button class="button"><%= link_to "New Post", new_post_path %></button>
-          <button class="button">Log Out</button>
-        </div>
-        <% end %>
+
       </div>
-      <% flash.each do |name, message| %>
-      <%= content_tag(:div, message, class: "alert") %>
-      <% end %>
 
       <%= yield %>
     </div>

@@ -1,6 +1,12 @@
 <% @posts.each do |post| %>
   <div class="post_wrapper">
+    <div class="index-image"><%= image_tag post.image.url(:large) %></div>
     <h2 class="title"><%= link_to post.title, post %></h2>
-    <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
+    <p class="post-body"><%= link_to post.body, post %></p>
+    <div class="details">
+        <p><span class="date"><strong>$249</strong></span>  <span class="price-link">Check it out</span></p>
+    </div>
+    <div class="clear"></div>
   </div>
+<!-- <span class="date"><%= post.created_at.strftime("%B, %d, %Y") %></span> -->
 <% end %>

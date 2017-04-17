@@ -21,6 +21,10 @@ html, body {
 	font-family: 'Raleway', sans-serif;
 }
 
+body {
+	background-color: #f5f7f9;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 500;
 }
@@ -30,15 +34,20 @@ a {
 	color: inherit;
 }
 
+.clear {
+    clear: both;
+}
+
 #sidebar {
+	margin-top: 50px;
 	width: 250px;
 	position: fixed;
 	left: 0;
 	top: 0;
 	height: 100%;
 	background: #f5f7f9;
-	padding: 7em 0 0 0;
-	border-right: 1px solid #d6dce0;
+	padding: 9em 0 0 0;
+	// border-right: 1px solid #d6dce0;
 	#logo {
 		width: 40px;
 		position: absolute;
@@ -80,7 +89,11 @@ a {
 		color: #9eafba;
 	}
 }
-
+.admin-bar {
+	background-color: black;
+	height: 45px;
+	width: 100%;
+}
 .button {
 	outline: none;
 	background: transparent;
@@ -95,7 +108,26 @@ a {
 		}
 	}
 }
-
+.alert {
+	position: relative;
+	top: -30px;
+	color: white;
+	left: 26px;
+	background-color: black;
+	width: 200px;
+	height: 30px;
+	border-radius: 5px;
+}
+.buttons {
+	float: right;
+	margin-top: 8px;
+	margin-right: 20px;
+	.button {
+		font-size: .8em;
+		margin-left: .5em;
+		color: white;
+	}
+}
 .clearfix:after {
    content: ".";
    visibility: hidden;
@@ -103,12 +135,15 @@ a {
    height: 0;
    clear: both;
 }
-
+.main-logo {
+	text-align: center;
+	margin-top: 40px;
+}
 #main_content {
 	margin-left: 250px;
 	#header {
-		padding: 1em 3em;
-		border-bottom: 1px solid #d6dce0;
+		padding: 0.5em 3em;
+		// border-bottom: 1px solid #d6dce0;
 		background: #f5f7f9;
 		color: #9eafba;
 		p {
@@ -118,29 +153,58 @@ a {
 			color: #9eafba;
 			text-decoration: none;
 		}
-		.buttons {
-			float: right;
-			margin-top: -6px;
-			.button {
-				font-size: .8em;
-				margin-left: .5em;
-			}
-		}
+
 	}
 	.post_wrapper {
-		padding: 3em;
-		border-bottom: 1px solid #d6dce0;
+		padding: 2.5px;
+		border: 1px solid #d6dce0;
+		background-color: white;
+		border-radius: 3px;
+		margin: 10px auto 0 auto;
+		transform: translate(-125px);
+		max-width: 505px;
+		overflow: hidden;
+	.index-image {
+		width: 500px;
+		height: 500px;
+		margin: 2.5px auto;
+	}
 		.title {
-			margin: 0;
+			width: 100%;
+			text-align: center;
 			a {
-				font-weight: 500;
+				font-weight: bolder;
 				text-decoration: none;
 				color: #2a2f35;
-				font-size: 1.5em;
+				font-size: 0.8em;
 				&:hover {
 					color: #33acb7;
 				}
 			}
+		}
+		.post-body {
+			 padding: 0 10px;
+			 font-size: 0.75em;
+		}
+		.details {
+			position:relative;
+			overflow: hidden;
+			height: 40px;
+			margin-top: 20px;
+		}
+		.date {
+			position: absolute;
+			left: 10px;
+			font-size: 0.9em;
+			top: 6px;
+		}
+		.price-link {
+			position: absolute;
+			right: 10px;
+			font-size: 0.7em;
+			border: 1px solid black;
+			padding: 8px;
+			top: 0px;
 		}
 		.date_and_author {
 			color: #9eafba;
@@ -262,5 +326,27 @@ a {
 			border: 1px solid #33acb7;
 			color: #33acb7;
 		}
+	}
+}
+@media (max-width: 1122px) {
+	#main_content {
+		margin-left: 250px;
+	}
+	#main_content .post_wrapper {
+		margin-left: 0;
+		margin-right: 30px;
+		transform: translate(0);
+	}
+}
+@media (max-width: 800px) {
+	#sidebar {
+		display: none;
+	}
+	#main_content {
+		margin-left: 0;
+	}
+	#main_content .post_wrapper {
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
