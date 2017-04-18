@@ -1,10 +1,10 @@
 <% @posts.each do |post| %>
-  <div class="post_wrapper">
+  <div class="post_wrapper box-shadow">
     <div class="index-image"><%= image_tag post.image.url(:large) %></div>
     <h2 class="title"><%= link_to post.title, post %></h2>
-    <p class="post-body"><%= link_to post.body, post %></p>
-    <div class="details">
-        <p><span class="date"><strong>$249</strong></span>  <span class="price-link">Check it out</span></p>
+    <p class="post-body display-none"><%= link_to post.body, post %></p>
+    <div class="details display-none">
+        <p class="display-none"><span class="date"><strong>$249</strong></span>  <span class="price-link">Check it out</span></p>
     </div>
     <div class="clear"></div>
   </div>
