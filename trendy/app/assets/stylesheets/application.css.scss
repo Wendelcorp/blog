@@ -43,7 +43,12 @@ a {
 .display-none {
   display: none;
 }
-
+#logo {
+	width: 65px;
+	position: fixed;
+	left: 8.5em;
+	top: 6em;
+}
 #sidebar {
 	margin-top: 50px;
 	width: 250px;
@@ -54,12 +59,7 @@ a {
 	background: none;
 	padding: 9em 0 0 0;
 	// border-right: 1px solid #d6dce0;
-	#logo {
-		width: 40px;
-		position: absolute;
-		right: 3em;
-		top: 3em;
-	}
+
 	ul {
 		list-style: none;
 		text-align: right;
