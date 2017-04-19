@@ -23,7 +23,7 @@
     <% end %>
     <div id="logo">
       <%= link_to root_path do %>
-        <%= image_tag "peace.svg" %>
+        <%= image_tag "peace2.svg" %>
       <% end %>
     </div>
     <!-- <%= link_to root_path do %>
@@ -32,12 +32,12 @@
     <div id="sidebar">
       <ul>
         <li class="category">Categories</li>
-        <li><a href="#">All</a></li>
-        <li><a href="#">Fashion</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Tech</a></li>
-        <li><a href="#">Art</a></li>
-        <li><a href="#">Other Stuff</a></li>
+        <li><%= link_to "All", root_path %></li>
+        <li><%= link_to "Fashion", tag_path(:fashion) %></li>
+        <li><%= link_to "Design", tag_path(:design) %></li>
+        <li><%= link_to "Tech", tag_path(:tech) %></li>
+        <li><%= link_to "Art", tag_path(:art) %></li>
+        <li><%= link_to "Other", tag_path(:other) %></li>
       </ul>
       <ul>
         <li class="category">Contribute</li>
@@ -54,7 +54,6 @@
         <% elsif current_page?(about_path) %>
         <p>About</p>
         <% else %>
-        <%= link_to "Back to All Posts", root_path %>
         <% end %>
 
       </div>

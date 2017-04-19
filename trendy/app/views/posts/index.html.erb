@@ -6,6 +6,7 @@
     <div class="details display-none">
         <p class="display-none"><span class="date"><strong>$249</strong></span>  <span class="price-link">Check it out</span></p>
     </div>
+    <div class="post-tags"><%= raw post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></div>
     <div class="clear"></div>
   </div>
 <!-- <span class="date"><%= post.created_at.strftime("%B, %d, %Y") %></span> -->
