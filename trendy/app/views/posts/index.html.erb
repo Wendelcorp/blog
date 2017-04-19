@@ -6,7 +6,12 @@
     <div class="details display-none">
         <p class="display-none"><span class="date"><strong>$249</strong></span>  <span class="price-link">Check it out</span></p>
     </div>
+    <% if user_signed_in? %>
     <div class="post-tags"><%= raw post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></div>
+    <br>
+    <%= link_to "Edit", edit_post_path(post) %>
+    <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: 'Are you sure you want to delete this post?'} %>
+    <% end %>
     <div class="clear"></div>
   </div>
 <!-- <span class="date"><%= post.created_at.strftime("%B, %d, %Y") %></span> -->
